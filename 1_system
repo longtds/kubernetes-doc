@@ -1,0 +1,8 @@
+目前有许多的容器Linux操作系统
+比如：RedHat的Atom，VMware的Photon，Core的CoreOS，Rancher的RancherOS等
+特点j就是轻量级和开箱即用，已经安装好docker或rkt，有的还有容器编排软件
+
+传统的Linux发行版都是支持容器部署的，Ubuntu或CentOS（这两用的还是最多的）
+
+一般测试环境使用CentOS部署底层环境，可以安装最新的软件，安装CentOS7以最小化方式安装
+
