@@ -1,2 +1,21 @@
 1.node隔离与恢复
+  停止node调度yaml文件：
+apiVersion: v1
+kind: Node
+metadata:
+  name; k8s-node-1
+  label:
+    kubernetes.io/hostname: k8s-node-1
+spec:
+  unschedulabel: true
+  命令行操作：
+  第一种：kubectl patch node k8s-node-1 -p '{"spec":{"unschedulabel":true}}'
+  第二种：kubectl cordon k8s-node-1
+之后的pod不会调度到k8s-node-1上
+  恢复调度：
+  kubectl patch node k8s-node-1 -p '{"spec":{"unschedulabel":false}}' 
+或
+  kubectl uncordon k8s-node-1
 
+2.node扩容
+  新的node上安装好docker、kubelet、kube-proxy服务，配置kubelet和kube-proxy启动参数，master url指定到kube-apiserver地址，新的node会自动加入现有kubernetes集群
