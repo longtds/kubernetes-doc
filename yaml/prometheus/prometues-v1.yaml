@@ -21,7 +21,7 @@ spec:
         component: core
     spec:
       containers:
-      - image: grafana/grafana:4.5.2
+      - image: grafana/grafana:4.0.0
         name: grafana-core
         # env:
         resources:
