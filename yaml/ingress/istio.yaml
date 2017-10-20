@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: istio-grafana
+  namespace: istio-system
+spec:
+  rules:
+  - host: istio-grafana.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: grafana
+          servicePort: 3000
+  - host: istio-servicegraph.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: servicegraph
+          servicePort: 8088
+  - host: istio-prometheus.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: prometheus
+          servicePort: 9090
+  - host: istio-zipkin.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: zipkin
+          servicePort: 9411
+  - host: istio-ingress.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: istio-ingress
+          servicePort: 80

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus
+  namespace: kube-system
+spec:
+  rules:
+  - host: grafana.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: grafana-grafana
+          servicePort: 80
+  - host: alertmanager.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: alertmanager-alertmanager
+          servicePort: 9093
